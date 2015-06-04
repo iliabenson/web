@@ -10,12 +10,21 @@
 			<!--
 
 			function init(){
+				// $("#eds").click(function(){
+				// 	$("#eds").removeClass("active").addClass("disabled");});
 				$("#eds").click(function(){
-					$("#eds").removeClass("active").addClass("disabled");});
+					dis_btn(this);
+				});
 				$("#qcs").click(function(){
-					$("#qcs").removeClass("active").addClass("disabled");});
+					$("#qcs").removeClass("active").addClass("disabled");
+				});
 				$("#bpla").click(function(){
-					$("#bpla").removeClass("active").addClass("disabled");});
+					$("#bpla").removeClass("active").addClass("disabled");
+				});
+			}
+
+			function dis_btn(obj){
+				$(obj).removeClass("active").addClass("disabled");
 			}
 
 			$(document).ready(function(){
