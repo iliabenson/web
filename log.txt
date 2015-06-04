@@ -1,0 +1,5 @@
+6/2/2015
+
+- initial commit and setup of the meta+lab repo.
+
+- made basic website as suggested in the roadmap.
