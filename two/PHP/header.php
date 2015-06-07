@@ -11,11 +11,13 @@
 		</div>
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav">
-				<li><!-- <button id="about">About</button> --><a id="about" href="">About</a></li>
+				<li><a id="about" href="#">About</a></li>
+				<li><a id="book" href="#">Book</a></li>
+				<li><a class="hide" href="#">Hidden</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-				<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+				<li><a id="signup" href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+				<li><a id="login" href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 			</ul>
 		</div>
 	</div>

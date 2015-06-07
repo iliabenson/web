@@ -1,0 +1,17 @@
+/*get a local copy of the bootstrap stylesheet and then add/edit it*/
+
+.standard {
+	color: purple;
+	text-align: center;
+	font-size: 1.5em;
+	font: cursive;
+}
+
+#content{
+	width: 100%;
+	padding-top: 50px;
+}
+
+.hide{
+	visibility: hidden;
+}
