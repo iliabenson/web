@@ -10,4 +10,5 @@
 		{{ $article->body }}
 	</article>
 
+
 @stop
