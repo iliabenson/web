@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 class PagesController extends Controller
 {
     public function about(){
-    	$name = 'ilia <span style="color: red;">benson</span>';
+    	$name = 'Ilia <span style="color: red;">Benson</span>';
 
     	return view('pages.about')->with('name', $name);
     }

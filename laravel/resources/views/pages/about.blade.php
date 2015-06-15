@@ -5,7 +5,7 @@
 	<title>Document</title>
 </head>
 	<body>
-		<h1>About me: {{ $name }}</h1>
+		<h1>About me: {!! $name !!}</h1>
 		<p>hahaha</p>
 	</body>
 </html>
