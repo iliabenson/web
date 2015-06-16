@@ -4,7 +4,7 @@
 	
 	<h1>Articles</h1>
 
-	<hr>
+	<hr/>
 
 	@foreach($articles as $article)
 		<article>

@@ -4,11 +4,10 @@
 	
 	<h1>{{ $article->title }}</h1>
 
-	<hr>
+	<hr/>
 
 	<article>
 		{{ $article->body }}
 	</article>
-
 
 @stop
