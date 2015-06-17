@@ -20,8 +20,6 @@ class ArticlesController extends Controller
 	public function show($id){
 		$article = Article::findOrFail($id);
 
-		// dd($article->published_at);
-
 		return view('articles.show', compact('article'));
 
 	}

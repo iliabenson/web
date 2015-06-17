@@ -24,3 +24,8 @@ Route::get('about', 'PagesController@about');
 // Route::post('articles', 'ArticlesController@store');
 
 Route::resource('articles', 'ArticlesController'); // this replaces all articles routes above and adds more.
+
+Route::controllers([
+	'auth' => '\App\Http\Controllers\Auth\AuthController',
+	'password' => '\App\Http\Controllers\Auth\PasswordController'
+]);
