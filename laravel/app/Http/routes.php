@@ -11,21 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'WelcomeController@index');
 
-
-Route::get('about', 'PagesController@about');
-
-// Route::get('articles', 'ArticlesController@index');
-// Route::get('articles/create', 'ArticlesController@create');
-// Route::get('articles/{id}', 'ArticlesController@show');
-// Route::post('articles', 'ArticlesController@store');
-
-Route::resource('articles', 'ArticlesController'); // this replaces all articles routes above and adds more.
+Route::get('home', 'HomeController@index');
 
 Route::controllers([
-	'auth' => '\App\Http\Controllers\Auth\AuthController',
-	'password' => '\App\Http\Controllers\Auth\PasswordController'
+	'auth' => 'Auth\AuthController',
+	'password' => 'Auth\PasswordController',
 ]);
