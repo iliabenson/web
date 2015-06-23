@@ -4,7 +4,7 @@ use App\Article;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
-use Request;
+use App\Http\Requests\CreateArticleRequest;
 
 // use Illuminate\Http\Request;
 
@@ -26,8 +26,8 @@ class ArticlesController extends Controller {
 		return view('articles.create');
 	}
 
-	public function store(){
-		Article::create(Request::all());
+	public function store(CreateArticleRequest $request){
+		Article::create($request->all());
 
 		return redirect('articles'); // why use a redirect here vs a view?
 									// because using a view would require to pass in values, redirect just calls the articles page and routes takes care of rest.
