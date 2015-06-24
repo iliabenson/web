@@ -4,8 +4,9 @@ use App\Article;
 use App\Http\Requests;
 // use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleRequest;
-use Illuminate\Http\Request;
-use Illuminate\HttpResponse;
+// use Illuminate\Http\Request;
+// use Illuminate\HttpResponse;
+use Illuminate\Support\Facades\Auth; // needed for Auth in store. look up facades http://laravel.com/docs/5.1/facades
 
 class ArticlesController extends Controller {
 
@@ -26,7 +27,12 @@ class ArticlesController extends Controller {
 	}
 
 	public function store(ArticleRequest $request){
-		Article::create($request->all());
+		$article = new Article($request->all());
+
+		// Auth::user()->articles would return a collections, since we want to continue to chain methods we have to reference articles as a method
+		Auth::user()->articles()->save($article);
+
+		// Article::create($request->all());
 
 		return redirect('articles'); // why use a redirect here vs a view?
 									// because using a view would require to pass in values, redirect just calls the articles page and routes takes care of rest.
