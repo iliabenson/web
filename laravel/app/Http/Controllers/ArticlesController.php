@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\Auth; // needed for Auth in store. look up facade
 
 class ArticlesController extends Controller {
 
+	public function __construct(){
+		// look up middleware, in a nutshell it is basically extra functionality that is processed in between client request and server response.
+		$this->middleware('auth', ['only' => 'create']); // can be attached at the route level directly or with an anonymous function. 
+		// if you do create your own middleware (via php artisan), make sure to enable it in Requests->Kernel, can make global (each request gets checked) or route specific (creates keyword and is assigned to route, like auth above).
+	}
+
 	public function index(){
 		$articles = Article::latest('published_at')->published()->get();
 
