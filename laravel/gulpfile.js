@@ -13,4 +13,9 @@ var elixir = require('laravel-elixir');
 
 elixir(function(mix) {
     mix.less('app.less');
+    // mix.less('bootstrap/bootstrap.less'); added in app.less
+
+    // mix.styles(['']); // used to mix several css into one file, not used since we use a .less bootstrap
+
+    mix.version('public/css/app.css'); // versions css under public->build->css and not public->css. the latter gets updated too but the former is versioned within the title.
 });

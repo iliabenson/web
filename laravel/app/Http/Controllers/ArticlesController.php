@@ -9,7 +9,7 @@ use App\Http\Requests\ArticleRequest;
 use Illuminate\Support\Facades\Auth; // needed for Auth in store. look up facades http://laravel.com/docs/5.1/facades
 									// you can think of facades as pointers to a registered underlying class.
 									// facades allow you to call methods on objects without actually having the instance of said object. a facade will get the object you want and then call the public method you specify on it. Article below is an eloquent model object, thus it has methods and a facade that go with it out of the box, thanks laravel.
-									// Auth works the same way, so does User. they are all models, made by laravel, that come out of the box
+									// Auth works the same way, so does User. they are all models, made by laravel, that come out of the box with it.
 
 class ArticlesController extends Controller {
 
