@@ -24,7 +24,13 @@ class RouteServiceProvider extends ServiceProvider {
 	{
 		parent::boot($router);
 
-		//
+		// can be used to overwrite the default logic for fetching the record. so can use 'where' to find specific instance.
+		// research this more though
+		// $router->bind('articles', function($id){
+		// 	return \App\Article::published()->findOrFail($id);
+		// });
+
+		$router->model('articles', 'App\Article'); // binding the model Article to the route articles. no i dont have to search for it, it will be available in all routes. so any route called articles with or without an 'articles' (because laravel makes them have the same name by default) wild card will map to the Article model and the wild card will be evaluated on the spot, the requested object will be fetched on the spot and passed to the underlying route method.
 	}
 
 	/**
