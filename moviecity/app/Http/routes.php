@@ -13,10 +13,9 @@
 
 Route::get('/', 'WelcomeController@index');
 
-Route::resource('movies', 'MoviesController');
-Route::post('movies/results', 'MoviesController@results');
+Route::get('home', 'HomeController@index');
 
-// Route::get('home', 'HomeController@index');
+// Route::recourse('movies', 'MoviesController');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

@@ -4,19 +4,21 @@
 
 This will display some recent movies or something
 
-{{-- 	<h1>Articles</h1>
+	<h1>Recommended movies</h1>
 
 	<hr/>
 
-	@foreach($articles as $article)
-		<article>
+	@foreach($movies as $movie)
+		<div>
 				
 			<h2>
-				<a href="{{ action('ArticlesController@show', [$article->id]) }}">{{ $article->title }}</a>
+				<a href="#">{{ $movie->title }}</a>
 			</h2>
 
-			<div class="body">{{ $article->body }}</div>
+			<div class="body">{{ $movie->body }}</div>
 
-		</article>
-	@endforeach --}}
+		</div>
+	@endforeach
 @stop
+
+{{-- {{ action('ArticlesController@show', [$article->id]) }} --}}

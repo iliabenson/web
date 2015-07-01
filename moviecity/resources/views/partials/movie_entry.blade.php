@@ -37,7 +37,7 @@
 <!-- Release Date Form Input -->
 <div class="form-group">
 	{!! Form::label('release', 'Release Date:') !!}
-	{!! Form::text('release', null, ['class' => 'form-control']) !!}
+	{!! Form::input('date', 'release', date('Y'), ['class' => 'form-control']) !!}
 </div>
 
 <!-- submit Form Input -->
