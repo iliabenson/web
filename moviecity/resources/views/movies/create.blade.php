@@ -15,4 +15,6 @@ create a movie entry --}}
 
 	{!! Form::Close() !!}
 
+	@include('errors.list')
+
 @stop

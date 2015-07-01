@@ -15,7 +15,7 @@ This will display some recent movies or something
 				<a href="#">{{ $movie->title }}</a>
 			</h2>
 
-			<div class="body">{{ $movie->body }}</div>
+			<div class="body">{{ $movie->description }}</div>
 
 		</div>
 	@endforeach

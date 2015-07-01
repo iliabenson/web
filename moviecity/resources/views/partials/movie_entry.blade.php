@@ -37,7 +37,13 @@
 <!-- Release Date Form Input -->
 <div class="form-group">
 	{!! Form::label('release', 'Release Date:') !!}
-	{!! Form::input('date', 'release', date('Y'), ['class' => 'form-control']) !!}
+	{!! Form::input('date', 'release', date('Y-m-d'), ['class' => 'form-control']) !!}
+</div>
+
+<!-- Recommended Form Input -->
+<div class="form-group">
+	{!! Form::label('recommended', 'Recommended:') !!}
+	{!! Form::checkbox('recommended', 1) !!}
 </div>
 
 <!-- submit Form Input -->

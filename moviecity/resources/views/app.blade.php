@@ -9,12 +9,23 @@
 		<script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 	</head>
 	<body>
-		@include('partials.header')
 
-		<div class="container">
-			@yield('content')
+		<div class="row">
+			<div class="container">
+				{!! Html::image('images/banner.jpg', 'Movie City - Where you discover Laravel') !!}
+			</div>
 		</div>
 
-		@include('partials.footer')
+		<div class="row">
+			<div class="container">
+				@include('partials.header')
+
+				<div class="container">
+					@yield('content')
+				</div>
+
+				@include('partials.footer')
+			</div>
+		</div>
 	</body>
 </html>
