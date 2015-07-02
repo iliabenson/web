@@ -4,6 +4,7 @@ use App\Movie;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MovieRequest;
+use App\Http\Requests\SearchRequest;
 // use Illuminate\Http\Request;
 // use Illuminate\HttpResponse;
 // use Illuminate\Support\Facades\Auth;
@@ -40,7 +41,6 @@ class MoviesController extends Controller {
 	 * @return Response
 	 */
 	public function store(MovieRequest $request){
-		// dd($request);
 		Movie::create($request->all());
 
 		return redirect('movies');
@@ -54,8 +54,9 @@ class MoviesController extends Controller {
 	 */
 	public function show($id){
 		$movie = Movie::findOrFail($id);
+		$actors = explode(',', $movie->actors);
 
-		return view('movies.show', compact('movie'));
+		return view('movies.show', compact('movie', 'actors'));
 	}
 
 	/**
@@ -77,6 +78,7 @@ class MoviesController extends Controller {
 	 * @return Response
 	 */
 	public function update($id, MovieRequest $request){
+		// dd($request->title);
 		$movie = Movie::findOrFail($id);
 
 		$movie->update($request->all());
@@ -94,8 +96,10 @@ class MoviesController extends Controller {
 		//
 	}
 
-	public function results(){
-		return view('movies.results');
+	public function results(SearchRequest $request){
+		$movies = Movie::where('title', $request->search)->orWhere('actors', $request->search)->get();
+
+		return view('movies.results', compact('movies'));
 	}
 
 }

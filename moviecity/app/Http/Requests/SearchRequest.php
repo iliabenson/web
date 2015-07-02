@@ -2,7 +2,7 @@
 
 use App\Http\Requests\Request;
 
-class MovieRequest extends Request {
+class SearchRequest extends Request {
 
 	/**
 	 * Determine if the user is authorized to make this request.
@@ -22,13 +22,7 @@ class MovieRequest extends Request {
 	public function rules()
 	{
 		return [
-			'title' => 'required|min:3',
-			'description' => 'required|min:5',
-			'actors' => 'required',
-			'director' => 'required',
-			'release' => 'required|date',
-			'rating' => 'required|in:G,PG,PG-13,R',
-			'category' => 'required|in:Drama,Action,Comedy,Suspense,Horror,Western,Romance'
+			'search' => 'required|min:3'
 		];
 	}
 

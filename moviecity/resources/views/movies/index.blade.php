@@ -2,23 +2,16 @@
 
 @section('content')
 
-This will display some recent movies or something
-
 	<h1>Recommended movies</h1>
 
 	<hr/>
 
-	@foreach($movies as $movie)
-		<div>
-				
-			<h2>
-				<a href="#">{{ $movie->title }}</a>
-			</h2>
+	@if (count($movies) > 0)
 
-			<div class="body">{{ $movie->description }}</div>
+		@include('partials.movie_list')
 
-		</div>
-	@endforeach
+	@else
+		<h1>Sorry! We don't have any recommendations at this time.</h1>
+	@endif
+
 @stop
-
-{{-- {{ action('ArticlesController@show', [$article->id]) }} --}}

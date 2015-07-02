@@ -1,8 +1,8 @@
-{!! Form::open(['url' => 'movies/results']) !!}
+{!! Form::open(['action' => 'MoviesController@results']) !!}
 	<div class="form-group">
-		<label for="search" class="col-xs-2 control-label hide">Search</label>
+		{!! Form::label('search', 'Search:', ['class' => 'col-xs-2 control-label hide']) !!}
 		<div class="col-xs-offset-2 col-xs-8 input-group">
-			<input type="text" class="form-control input-lg input_black" id="search" placeholder="Enter Movie Title">
+			{!! Form::text('search', null, ['class' => 'form-control input-lg input_black', 'placeholder' => 'Enter Movie Title']) !!}
 			<div class="input-group-btn">
 				<button type="submit" class="btn btn-primary btn-lg">Search</button>
 			</div>
