@@ -15,6 +15,7 @@ class CreateMoviesTable extends Migration {
 		Schema::create('movies', function(Blueprint $table)
 		{
 			$table->increments('id');
+			$table->integer('user_id')->unsigned();
 			$table->string('title');
 			$table->text('description');
 			$table->text('actors');
@@ -24,6 +25,11 @@ class CreateMoviesTable extends Migration {
 			$table->boolean('recommended');
 			$table->string('rating');
 			$table->string('category');
+
+			$table->foreign('user_id')
+				  ->references('id')
+				  ->on('users')
+				  ->onDelete('cascade');
 		});
 	}
 

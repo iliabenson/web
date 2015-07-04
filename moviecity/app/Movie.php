@@ -13,7 +13,8 @@ class Movie extends Model {
 	'release',
 	'recommended',
 	'rating',
-	'category'
+	'category',
+	'user_id' //temp???
 	];
 
 	protected $dates = ['release'];
@@ -22,15 +23,11 @@ class Movie extends Model {
 		$query->where('recommended', '=', 1);
 	}
 
-	// public function getSearchResultsAttrubute($query){
-	// 	$query->where('title', )
-	// }
-
 	public function setReleaseAttribute($date){
 		$this->attributes['release'] = Carbon::parse($date);
 	}
 
-	// public function setActorsAttribute($actors){
-	// 	$this->attributes['actors'] = explode(',', $actors);
-	// }
+	public function user(){
+		return $this->belongsTo('App\User');
+	}
 }
