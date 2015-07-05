@@ -22,7 +22,7 @@ class SearchRequest extends Request {
 	public function rules()
 	{
 		return [
-			'search' => 'required|min:3'
+			'search' => 'required'
 		];
 	}
 
