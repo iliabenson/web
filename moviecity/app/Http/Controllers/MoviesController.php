@@ -12,7 +12,10 @@ use App\Http\Requests\SearchRequest;
 use Illuminate\Support\Facades\Auth;
 
 // TODO: account for actors and movies of the same name, for now it just updates existing vs creating new
+// TODO: use bootstrap to give search hints when typing in names
 // TODO: add wiring and support for image upload, management, and database value lookup and display
+// TODO: add dynamic field support for person entry and change actor to person with a role field. that way writer and director can be people and actors and search can be extended to them too.
+// TODO: split the request for store and updates for movie input and person input, somehow need to have that one form trigger two controllers, one for movies and one for people. if thats not possible then leave as is, its partitioned enough to be abstract.
 
 class MoviesController extends Controller {
 
@@ -50,7 +53,12 @@ class MoviesController extends Controller {
 	public function show($id){
 		$movie = Movie::findOrFail($id);
 
-		$actors = explode(',', $movie->actors);
+		// this can become a query scope
+		$pivots = ActorMoviePivot::where('movie_id', $id)->get();
+
+		foreach ($pivots as $pivot){
+			$actors[] = Actor::find($pivot->actor_id);
+		}
 
 		return view('movies.show', compact('movie', 'actors'));
 	}
@@ -87,12 +95,15 @@ class MoviesController extends Controller {
 	}
 
 	public function destroy($id){
-		//
+		$movie :: Movie::findOrFail($id);
+
+		$this->DeletePivotsAndActors($movie);
+
+		$movie->delete();
+
+		return redirect('movies');
 	}
 
-	// TODO: need to rewire to use people, that way can search for actors and director and other options if i choose to add them
-	// TODO: use boorap to give search hints when typing in names
-	// TODO: edit search engine and DBase to account for roles and search by director too.
 	public function results(SearchRequest $request){
 		$movies = Movie::where('title', $request->search)->get();
 
@@ -100,9 +111,4 @@ class MoviesController extends Controller {
 
 		return view('movies.results', compact('movies', 'actors'));
 	}
-
-	// public function actors($name){
-	// 	return view('movies.actors');
-	// }
-
 }

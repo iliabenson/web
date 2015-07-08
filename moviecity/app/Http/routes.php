@@ -21,11 +21,14 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::patch('movies/{movies}', 'MoviesController@update');
 	Route::get('movies/create', 'MoviesController@create');
 	Route::post('movies', 'MoviesController@store');
+	Route::delete('movies/{movies}', 'MoviesController@destroy');
 });
 Route::get('movies', 'MoviesController@index');
 Route::get('movies/{movies}', 'MoviesController@show');
-Route::delete('movies/{movies}', 'MoviesController@destroy');
 Route::post('movies/results', 'MoviesController@results');
+
+// Route::get('actor', 'ActorsController@index');
+Route::get('actors/{actor}', 'ActorsController@actor');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

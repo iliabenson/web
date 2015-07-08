@@ -14,7 +14,7 @@
 			@foreach($movies as $movie)			
 				<tr>
 					<td><img src="http://placehold.it/60x75"></td>
-					<td>{{ $movie->title }}</td>
+					<td>{{ $movie->title }} ({{ $movie->release->year }})</td>
 					<td>{{ $movie->release->year }}</td>
 					<td>{{ $movie->director }}</td>
 					@if ($movie->recommended == 1)

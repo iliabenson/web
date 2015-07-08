@@ -2,11 +2,11 @@
 
 @section('content')
 
-	<h1>Search Results</h1>
-
-	<hr/>
-
 	@if (count($movies) > 0)
+
+		<h1>Movie Search Results:</h1>
+
+		<hr/>
 
 		@include('partials.movie_list')
 
@@ -15,6 +15,10 @@
 	@endif
 
 	@if (count($actors) > 0)
+
+		<h1>Actor Search Results:</h1>
+
+		<hr/>
 
 		<div class="container">	
 			<table class="table table-condensed">
@@ -31,7 +35,7 @@
 							<td><img src="http://placehold.it/60x75"></td>
 							<td>{{ $actor->name }}</td>
 							<td>
-								<button type="submit" onclick="window.location='#'" class="btn btn-primary btn-lg">View</button>
+								<button type="submit" onclick="window.location='{{ action('ActorsController@actor', [$actor->id]) }}'" class="btn btn-primary btn-lg">View</button>
 							</td>
 						</tr>
 					@endforeach
