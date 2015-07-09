@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Auth;
 // TODO: add wiring and support for image upload, management, and database value lookup and display
 // TODO: add dynamic field support for person entry and change actor to person with a role field. that way writer and director can be people and actors and search can be extended to them too.
 // TODO: split the request for store and updates for movie input and person input, somehow need to have that one form trigger two controllers, one for movies and one for people. if thats not possible then leave as is, its partitioned enough to be abstract.
+// TODO: rename movies.index to recommendations, fix all broken links that occur there after.
 
 class MoviesController extends Controller {
 
@@ -95,7 +96,7 @@ class MoviesController extends Controller {
 	}
 
 	public function destroy($id){
-		$movie :: Movie::findOrFail($id);
+		$movie = Movie::findOrFail($id);
 
 		$this->DeletePivotsAndActors($movie);
 

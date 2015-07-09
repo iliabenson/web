@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
-
-Route::get('home', 'HomeController@index');
-
 Route::group(['middleware' => 'auth'], function(){
 	Route::get('movies/{movies}/edit', 'MoviesController@edit');
 	Route::put('movies/{movies}', 'MoviesController@update');
@@ -22,12 +18,16 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::get('movies/create', 'MoviesController@create');
 	Route::post('movies', 'MoviesController@store');
 	Route::delete('movies/{movies}', 'MoviesController@destroy');
+
+	Route::get('home', 'PagesController@home');
 });
+
+Route::get('/', 'PagesController@index');
+
 Route::get('movies', 'MoviesController@index');
 Route::get('movies/{movies}', 'MoviesController@show');
 Route::post('movies/results', 'MoviesController@results');
 
-// Route::get('actor', 'ActorsController@index');
 Route::get('actors/{actor}', 'ActorsController@actor');
 
 Route::controllers([
