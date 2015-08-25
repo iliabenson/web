@@ -19,11 +19,11 @@ class Movie extends Model {
 
 	protected $dates = ['release'];
 
-	public function scopeRecommended($query){
+	public function scopeRecommended($query){ // query scope
 		$query->where('recommended', '=', 1);
 	}
 
-	public function setReleaseAttribute($date){
+	public function setReleaseAttribute($date){ // mutator
 		$this->attributes['release'] = Carbon::parse($date);
 	}
 
